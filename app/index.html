@@ -10,9 +10,115 @@
     <title>Rojo Y Tostado</title>
     <meta name="keywords" content="rojo y tostado, productions, film, movie, narrative short, coffee in the morning, café por la mañana">
     <meta name="description" content="Rojo y Tostado. A film making production company.">
+    <style>
+        .loader-wrapper {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: white;
+            z-index: 500;
+            &--hide {
+                display: none;
+            }
+        }
+        
+        .box {
+            display: inline-block;
+            height: 400px;
+            width: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .2s ease;
+        }
+        
+        .ryt {
+            position: relative;
+            width: 150px;
+            height: 200px;
+            top: 0;
+            top: calc(13% - 10px);
+            left: 25%;
+            left: calc(50% - 75px);
+            background-image: url('./assets/images/rytRed-main.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .loader8 {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            top: 28%;
+            top: -webkit-calc(50% - 160px);
+            top: calc(50% - 160px);
+            left: 35%;
+            left: -webkit-calc(50% - 43px);
+            left: calc(50% - 43px);
+            border-radius: 50px;
+            background-color: rgba(211, 79, 29, 1);
+            border-width: 40px;
+            border-style: double;
+            border-color: transparent #961E1E;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            -webkit-animation: loader8 2s linear infinite;
+            animation: loader8 2s linear infinite;
+        }
+        
+        .loading {
+            position: relative;
+            width: 80px;
+            height: 20px;
+            top: calc(50% - 120px);
+            left: calc(50% - 43px);
+            text-align: center;
+            font-size: 2.5rem;
+            color: #961E1E;
+        }
+        
+        @-webkit-keyframes loader8 {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes loader8 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener("load", () => hideLoader());
+
+        function hideLoader() {
+            let loadScreen = document.querySelector(".loader-wrapper");
+            document.body.removeChild(loadScreen);
+        }
+    </script>
 </head>
 
 <body>
+    <div class="loader-wrapper">
+        <div class="box">
+            <div class="ryt"></div>
+            <div class="loader8"></div>
+            <div class="loading">Loading...</div>
+        </div>
+    </div>
     <video class="site__video" autoplay muted loop>
         <source src="./assets/images/particles.mp4" type="video/mp4">
     </video>
@@ -21,7 +127,7 @@
             <img class="site-home__title--image" src="./assets/images/rytRed-main.png" alt="Rojo y Tostado logo.">
         </div>
         <div class="site-home__link">
-            <a class="site-home__link__button" href="../cafe-por-la-manana/index.html">Coffee in the morning</a>
+            <a class="site-home__link__button" href="../cafe-por-la-manana/index.html" data-key="link">cafe por la manana</a>
         </div>
     </header>
 </body>

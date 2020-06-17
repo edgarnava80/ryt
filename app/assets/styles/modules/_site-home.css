@@ -23,11 +23,29 @@
             border: 1px solid $color-grey-light;
             border-radius: .3rem;
             text-decoration: none;
-            font-size: 4rem;
+            text-transform: uppercase;
+            font-size: 2rem;
             font-family: $font-title, serif;
             margin: 2rem auto;
-            padding: .2rem 2rem;
+            line-height: 2;
+            padding-top: .5rem;
+            padding-bottom: .2rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            //padding:  2rem;
             cursor: pointer;
+            @mixin atSmall {
+                font-size: 2.5rem;
+            }
+            @mixin atMedium {
+                font-size: 3rem;
+            }
+            @mixin atLarge {
+                font-size: 3.5rem;
+            }
+            @mixin atLarger {
+                font-size: 4rem;
+            }
         }
         &__button:hover {
             background-color: rgba(#D34F1D, 1);
